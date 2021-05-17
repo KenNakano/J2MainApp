@@ -5,8 +5,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,29 +20,30 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    final ArrayList<String> data = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
-        ListView list = (ListView) findViewById(R.id.list);
-        list.setAdapter(adapter);
+//        final ArrayList<String> data = new ArrayList<>();
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
+//        ListView list = (ListView) findViewById(R.id.list);
+//        list.setAdapter(adapter);
 //        data.add("胡椒");
 //        data.add("ターメリック");
 //        data.add("コリアンダー");
 
         ListView listView = (ListView) findViewById(R.id.list);
+        mCustomAdapter = new CustomAdapter(getApplicationContext(), R.layout.card_view, new ArrayList<ToDoData>());
+        mListView.setAdapter(mCustomAdapter);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("非受注").addValueEventListener(listener);
+        reference.child("非受注").child("001").addValueEventListener(listener);
 //        reference.child("非受注").child("002").addValueEventListener(listener2);
 
-
-/*
-       reference.addChildEventListener(new ChildEventListener() {
+        reference.addChildEventListener(new ChildEventListener() {
             //            データを読み込むときはイベントリスナーを登録して行う。
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -78,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
 ////                ログを記録するなどError時の処理を記載する。
 //            }
         });
-*/
 
 //        reference.child("key1").setValue("こんにちは！",null);
 //        reference.child("key2").setValue("おはよう！",null);
@@ -147,28 +150,7 @@ public class MainActivity extends AppCompatActivity {
 */
     }
 
-/*    ChildEventListener childEventListener = new ChildEventListener() {
-        @Override
-        public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-
-        }
-
-        @Override
-        public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
-
-            // A comment has changed, use the key to determine if we are displaying this
-            // comment and if so displayed the changed comment.
-           // Comment newComment = dataSnapshot.getValue(Comment.class);
-            String commentKey = dataSnapshot.getKey();
-
-            // ...
-        }
-
-    };
-        databaseReference.addChildEventListener(childEventListener);
-*/
-
-    ValueEventListener listener = new ValueEventListener()
+   ValueEventListener listener = new ValueEventListener()
     {
         public void onDataChange(DataSnapshot snapshot)
         {
@@ -179,16 +161,15 @@ public class MainActivity extends AppCompatActivity {
             for(int i=1; i<3; i++){
                 String value = String.valueOf(snapshot.getValue());
 
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Object object = ds.getValue(Object.class);
+//                    orders.add(object);
+//                    list.setAdapter(adapter);
+                }
+
 //                data.add(value);
 //                dataAdd(value);
             }
-
-            for (DataSnapshot ds : snapshot.getChildren()) {
-//                RequestData object = ds.getValue(RequestData.class);
-                data.add(snapshot.getValue().toString());
-                list.setAdapter(adapter);
-            }
-
         }
 
         public void onCancelled(DatabaseError error)
