@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "780491113415",
+    "firebase_url": "https://j2maindatabase-default-rtdb.firebaseio.com",
+    "project_id": "j2maindatabase",
+    "storage_bucket": "j2maindatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780491113415:android:ea25a85758939ab50c4fe2",
+        "android_client_info": {
+          "package_name": "com.sample.j2mainapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780491113415-hogi348ld4cokmna2etqnjgamitasml6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCfXba6Tru3hmYJ9m-HdgVXw5WzgtPiT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780491113415-hogi348ld4cokmna2etqnjgamitasml6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
