@@ -36,14 +36,12 @@ public class MainActivity extends AppCompatActivity {
 //        data.add("コリアンダー");
 
         ListView listView = (ListView) findViewById(R.id.list);
-        mCustomAdapter = new CustomAdapter(getApplicationContext(), R.layout.card_view, new ArrayList<ToDoData>());
-        mListView.setAdapter(mCustomAdapter);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         reference.child("非受注").child("001").addValueEventListener(listener);
 //        reference.child("非受注").child("002").addValueEventListener(listener2);
 
-        reference.addChildEventListener(new ChildEventListener() {
+        /*reference.addChildEventListener(new ChildEventListener() {
             //            データを読み込むときはイベントリスナーを登録して行う。
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 //            public void onCancelled(@NonNull DatabaseError databaseError) {
 ////                ログを記録するなどError時の処理を記載する。
 //            }
-        });
+        });*/
 
 //        reference.child("key1").setValue("こんにちは！",null);
 //        reference.child("key2").setValue("おはよう！",null);
