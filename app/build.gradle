@@ -46,6 +46,8 @@ dependencies {
 
     // Declare the dependency for the Firebase SDK for Google Analytics
     //implementation 'com.google.firebase:firebase-analytics'
-
     implementation 'com.google.firebase:firebase-database'
+    
+    // Single target that includes all FirebaseUI libraries
+    compile 'com.firebaseui:firebase-ui:0.4.4'
 }
