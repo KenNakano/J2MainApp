@@ -16,7 +16,7 @@ public class Top extends AppCompatActivity {
 
 
         //Top画面→手伝う画面に進むボタン
-        final Button OrderConfirmbutton = findViewById(R.id.RequestConfirm);
+        final Button OrderConfirmbutton = findViewById(R.id.RequestConfirmButton);
 
         //Top画面→手伝う画面に進むボタンが操作された時の動作
         OrderConfirmbutton.setOnClickListener(new View.OnClickListener() {
@@ -27,6 +27,25 @@ public class Top extends AppCompatActivity {
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
                 Intent intent = new Intent(Top.this, RequestConfirm.class);
+                //画面遷移
+                startActivity(intent);
+
+            }
+        });
+
+
+        //Top画面→依頼画面に進むボタン
+        final Button ReceiveBoardbutton = findViewById(R.id.ReceiveConfirmButton);
+
+        //Top画面→依頼画面に進むボタンが操作された時の動作
+        ReceiveBoardbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ボタンが押された時の処理
+
+                //インテントの作成
+                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
+                Intent intent = new Intent(Top.this, ReceiveBoard.class);
                 //画面遷移
                 startActivity(intent);
 

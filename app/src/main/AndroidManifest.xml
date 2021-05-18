@@ -9,14 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.J2MainApp">
-        <activity android:name=".Refuse"></activity>
+        <activity android:name=".InputOrderDetail"></activity>
+        <activity android:name=".InputOrder" />
+        <activity android:name=".InputReceiveInformation" />
+        <activity android:name=".ReceiveBoard" />
         <activity android:name=".Do" />
-        <activity android:name=".InputOrderInformation" />
         <activity android:name=".RequestConfirm" />
         <activity android:name=".Coupon" />
         <activity android:name=".FinishPoint" />
         <activity android:name=".OrderReceive" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".Top">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

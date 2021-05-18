@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InputOrderInformation">
+    tools:context=".InputReceiveInformation">
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -26,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="お店を入力"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +75,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/kanryo"
+        android:id="@+id/KanryoButton"
         android:layout_width="165dp"
         android:layout_height="54dp"
         android:text="完了 GO!"
@@ -95,5 +97,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.003" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
