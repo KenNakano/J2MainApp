@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.J2MainApp">
-        <activity android:name=".InputOrderDetail"></activity>
+        <activity android:name=".Sorry"></activity>
+        <activity android:name=".OrderTime" />
+        <activity android:name=".OrderFinish" />
+        <activity android:name=".InputOrderDetail" />
         <activity android:name=".InputOrder" />
         <activity android:name=".InputReceiveInformation" />
         <activity android:name=".ReceiveBoard" />
