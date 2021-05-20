@@ -53,5 +53,23 @@ public class RequestConfirm extends AppCompatActivity {
 
             }
         });
+
+        //手伝う画面→依頼内容受注画面に進むボタン（その２）
+        final Button  BackTopButton= findViewById(R.id.TopButton);
+
+        //Top画面→手伝う画面に進むボタンが操作された時の動作
+        BackTopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ボタンが押された時の処理
+
+                //インテントの作成
+                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
+                Intent intent = new Intent(RequestConfirm.this, Top.class);
+                //画面遷移
+                startActivity(intent);
+
+            }
+        });
     }
 }

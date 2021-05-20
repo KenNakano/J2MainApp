@@ -7,38 +7,37 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class OrderFinish extends AppCompatActivity {
+public class ShopListWrite extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_finish);
+        setContentView(R.layout.activity_shop_list_write);
 
 
-        //MoneyButton
+        //お客側　　お店掲示板編集画面→　Top画面に進むボタン(投稿ボタンを押した場合)
+        Button ShopSaleWriteButton= findViewById(R.id.ShopSaleWriteButton);
 
-        //依頼者側　タスク完了画面→クーポン画面に進むボタン
-        final Button MoneyGoButton = findViewById(R.id.MoneyButton);
-
-        //依頼者側　タスク完了画面→クーポン画面に進むボタン動作処理
-        MoneyGoButton.setOnClickListener(new View.OnClickListener() {
+        //お客側　　お店掲示板編集画面→　Top画面に進むボタン(投稿ボタンを押した場合)
+        ShopSaleWriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //ボタンが押された時の処理
 
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
-                Intent intent = new Intent(OrderFinish.this, Coupon.class);
+                Intent intent = new Intent(ShopListWrite.this,ShopTop.class);
                 //画面遷移
                 startActivity(intent);
 
             }
         });
 
-        //依頼者側　タスク完了画面→Top画面に進むボタン（トップボタンが押されたとき）
-        final Button BackTopButton = findViewById(R.id.TopButton);
 
-        //実行側　詳細情報入力画面→Top画面に進むボタンが操作された時の動作
+        //お店掲示板編集画面→Top画面に進むボタン（トップに戻るボタンを押したとき）
+        Button BackTopButton = findViewById(R.id.ShopTopButton);
+
+        //お店掲示板編集画面→Top画面に進むボタン（トップに戻るボタンを押したとき）
         BackTopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,13 +45,11 @@ public class OrderFinish extends AppCompatActivity {
 
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
-                Intent intent = new Intent(OrderFinish.this, Top.class);
+                Intent intent = new Intent(ShopListWrite.this, ShopTop.class);
                 //画面遷移
                 startActivity(intent);
 
             }
         });
-
-
     }
 }

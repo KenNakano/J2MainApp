@@ -109,6 +109,25 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
             }
         });
 
+        //Top画面→店舗一覧画面に進むボタン
+        final Button ShopListbutton = findViewById(R.id.ShopListButton);
+
+        //Top画面→店舗一覧画面に進むボタン処理
+        ShopListbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ボタンが押された時の処理
+
+                //インテントの作成
+                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
+                Intent intent = new Intent(Top.this, ShopList.class);
+                //画面遷移
+                startActivity(intent);
+
+            }
+        });
+
+
 
         //Top画面→手伝う画面に進むボタン
         final Button OrderConfirmbutton = findViewById(R.id.RequestConfirmButton);

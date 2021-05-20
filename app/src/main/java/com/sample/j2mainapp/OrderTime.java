@@ -33,6 +33,27 @@ public class OrderTime extends AppCompatActivity {
             }
         });
 
+        //依頼途中画面→トップ画面に進むボタン
+        Button BackTopButton = findViewById(R.id.TopButton);
+
+        //依頼途中画面→トップ画面に進むボタン処理
+        BackTopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ボタンが押された時の処理
+
+                //インテントの作成
+                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
+                //Refuseボタンを押すと、トップ画面に戻る
+                Intent intent = new Intent(OrderTime.this, Top.class);
+                //画面遷移
+                startActivity(intent);
+
+            }
+        });
+
+
+
 
     }
 }

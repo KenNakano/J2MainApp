@@ -7,46 +7,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class OrderFinish extends AppCompatActivity {
+public class ShopTop extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_finish);
+        setContentView(R.layout.activity_shop_top);
 
 
-        //MoneyButton
+        //お店トップ画面→お店基本情報編集画面に進むボタン
+        final Button ShopInformationbutton = findViewById(R.id.InputShopInformationButton);
 
-        //依頼者側　タスク完了画面→クーポン画面に進むボタン
-        final Button MoneyGoButton = findViewById(R.id.MoneyButton);
-
-        //依頼者側　タスク完了画面→クーポン画面に進むボタン動作処理
-        MoneyGoButton.setOnClickListener(new View.OnClickListener() {
+        //お店トップ画面→お店基本情報編集画面に進むボタン処理
+        ShopInformationbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //ボタンが押された時の処理
 
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
-                Intent intent = new Intent(OrderFinish.this, Coupon.class);
-                //画面遷移
-                startActivity(intent);
-
-            }
-        });
-
-        //依頼者側　タスク完了画面→Top画面に進むボタン（トップボタンが押されたとき）
-        final Button BackTopButton = findViewById(R.id.TopButton);
-
-        //実行側　詳細情報入力画面→Top画面に進むボタンが操作された時の動作
-        BackTopButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //ボタンが押された時の処理
-
-                //インテントの作成
-                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
-                Intent intent = new Intent(OrderFinish.this, Top.class);
+                Intent intent = new Intent(ShopTop.this, InputShopInformation.class);
                 //画面遷移
                 startActivity(intent);
 
@@ -54,5 +34,23 @@ public class OrderFinish extends AppCompatActivity {
         });
 
 
+
+        //お店トップ画面→お店掲示板画面に進むボタン
+        final Button ShopListWriteButton = findViewById(R.id.ShopListWriteButton);
+
+        //お店トップ画面→お店掲示板画面に進むボタン処理
+        ShopListWriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ボタンが押された時の処理
+
+                //インテントの作成
+                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
+                Intent intent = new Intent(ShopTop.this, ShopListWrite.class);
+                //画面遷移
+                startActivity(intent);
+
+            }
+        });
     }
 }

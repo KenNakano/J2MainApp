@@ -52,6 +52,24 @@ public class InputOrder extends AppCompatActivity {
             }
         });
 
+        //依頼側　ついでに依頼画面→　Top画面に進む(トップボタンを押したとき)
+        Button BackTopButton = findViewById(R.id.TopButton);
+
+        //依頼側　ついでに依頼画面→投稿完了画面に進むボタンが操作された時の動作
+        BackTopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ボタンが押された時の処理
+
+                //インテントの作成
+                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
+                Intent intent = new Intent(InputOrder.this,Top.class);
+                //画面遷移
+                startActivity(intent);
+
+            }
+        });
+
 
     }
 }
