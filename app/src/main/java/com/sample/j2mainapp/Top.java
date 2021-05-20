@@ -111,7 +111,7 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
 
 
         //Top画面→手伝う画面に進むボタン
-        final Button OrderConfirmbutton = findViewById(R.id.RequestConfirm);
+        final Button OrderConfirmbutton = findViewById(R.id.RequestConfirmButton);
 
         //Top画面→手伝う画面に進むボタンが操作された時の動作
         OrderConfirmbutton.setOnClickListener(new View.OnClickListener() {
