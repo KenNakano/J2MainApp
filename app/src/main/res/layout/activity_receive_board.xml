@@ -4,21 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RequestConfirm">
+    tools:context=".ReceiveBoard">
+
+    <Button
+        android:id="@+id/TopButton"
+        android:layout_width="79dp"
+        android:layout_height="41dp"
+        android:text="トップ"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.009"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.003" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="133dp"
-        android:layout_marginLeft="133dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="125dp"
-        android:layout_marginRight="125dp"
-        android:text="誰を手伝いますか？"
+        android:layout_marginStart="134dp"
+        android:layout_marginLeft="134dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginRight="134dp"
+        android:text="誰に頼みますか？"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.818"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -26,24 +38,17 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
-        android:layout_marginLeft="170dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginRight="170dp"
-        android:layout_marginBottom="13dp"
-        android:text="手伝う"
+        android:text="頼む"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/Inputhelp"
+        android:id="@+id/InputOrderDetailButton"
         android:layout_width="296dp"
         android:layout_height="78dp"
-        android:text="新しく手伝う"
+        android:text="新しく頼む"
         android:textSize="30sp"
         android:typeface="normal"
         app:backgroundTint="@color/design_default_color_error"
@@ -67,26 +72,29 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/Irai1"
+                android:id="@+id/Receive1"
                 android:layout_width="match_parent"
                 android:layout_height="132dp"
-                android:text="コンビニでアイスを買ってきて欲しい人がいます"
+                android:text="ファミリーマート 西船橋店へ行く人がいます"
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/Irai2"
+                android:id="@+id/Receive2"
                 android:layout_width="match_parent"
                 android:layout_height="112dp"
-                android:text="CTC商店街の八百屋で大根を買ってきて欲しい人がいます"
+                android:text="スギ薬局 西船橋駅前店へ行く人がいます"
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/Irai3"
+                android:id="@+id/Receive3"
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
-                android:text="牛乳を買ってきて欲しい人がいます"
+                android:text="CTC商店街へ行く人がいます"
                 android:textSize="18sp" />
+
+
         </LinearLayout>
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

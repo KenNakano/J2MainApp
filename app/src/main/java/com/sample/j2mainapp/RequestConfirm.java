@@ -37,17 +37,17 @@ public class RequestConfirm extends AppCompatActivity {
 
 
         //手伝う画面→依頼内容受注画面に進むボタン（その２）
-        final Button Irai2button = findViewById(R.id.Irai2);
+        final Button  InputHelpButton= findViewById(R.id.Inputhelp);
 
         //Top画面→手伝う画面に進むボタンが操作された時の動作
-        Irai1button.setOnClickListener(new View.OnClickListener() {
+        InputHelpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //ボタンが押された時の処理
 
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
-                Intent intent = new Intent(RequestConfirm.this, OrderReceive.class);
+                Intent intent = new Intent(RequestConfirm.this, InputReceiveInformation.class);
                 //画面遷移
                 startActivity(intent);
 

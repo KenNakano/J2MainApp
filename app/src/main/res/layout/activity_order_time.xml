@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Do">
+    tools:context=".OrderTime">
 
-    <!-- (実行側１)　実行側がタスクを実行している途中の画面-->
+
+    <!--（依頼者側の画面）　　実行者がタスクを完了するまで、待機している画面 -->
     <Button
         android:id="@+id/TopButton"
         android:layout_width="79dp"
@@ -20,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.003" />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,7 +29,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="440dp"
             android:layout_weight="1"
             android:background="#B2EAEA7E">
 
@@ -35,14 +37,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/DoTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="実行中"
-                    android:textSize="24sp" />
 
                 <ImageView
                     android:id="@+id/imageView1"
@@ -110,6 +104,26 @@
                     android:background="#FCFCFC"
                     android:paddingBottom="30dp"
                     android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="帰ってくるのを待っています"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/ToOrderFinishButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="荷物を受け取りましたか？" />
             </LinearLayout>
         </ScrollView>
 
@@ -117,17 +131,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="bottom">
-
-            <Button
-                android:id="@+id/FinishButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="完了" />
-
-
-        </LinearLayout>
+            android:gravity="bottom"/>
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

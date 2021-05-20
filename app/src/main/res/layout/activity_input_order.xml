@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Do">
+    tools:context=".InputOrder">
 
-    <!-- (実行側１)　実行側がタスクを実行している途中の画面-->
     <Button
         android:id="@+id/TopButton"
         android:layout_width="79dp"
@@ -36,14 +35,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/DoTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="実行中"
-                    android:textSize="24sp" />
-
                 <ImageView
                     android:id="@+id/imageView1"
                     android:layout_width="match_parent"
@@ -69,7 +60,7 @@
                     android:layout_marginBottom="20dp"
                     android:background="#FCFCFC"
                     android:paddingBottom="30dp"
-                    android:text="TextView" />
+                    android:text="実行側のニックネームが入る" />
 
                 <TextView
                     android:id="@+id/Title2"
@@ -89,7 +80,7 @@
                     android:layout_marginBottom="20dp"
                     android:background="#FCFCFC"
                     android:paddingBottom="30dp"
-                    android:text="TextView" />
+                    android:text="実行側の紹介文が入る" />
 
                 <TextView
                     android:id="@+id/Title3"
@@ -109,7 +100,27 @@
                     android:layout_marginBottom="20dp"
                     android:background="#FCFCFC"
                     android:paddingBottom="30dp"
-                    android:text="TextView" />
+
+                    android:text="実行側のエリアが入る" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="何を頼みますか？" />
+
+                <EditText
+                    android:id="@+id/editTextTextPersonName2"
+                    android:layout_width="match_parent"
+                    android:layout_height="167dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="#ffffff"
+                    android:ems="10"
+                    android:hint="○○を買ってきて欲しい"
+                    android:inputType="textPersonName" />
             </LinearLayout>
         </ScrollView>
 
@@ -120,14 +131,20 @@
             android:gravity="bottom">
 
             <Button
-                android:id="@+id/FinishButton"
+                android:id="@+id/WriteFinishButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="完了" />
+                android:text="確定" />
 
-
+            <Button
+                android:id="@+id/IraiRefuseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="お断り" />
         </LinearLayout>
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
