@@ -20,74 +20,64 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    DatabaseReference reference;
+    ListView listView;
+    ArrayList<String> arrayList = new ArrayList<>();
+    ArrayAdapter<String> arrayAdapter;
 
+/*
+    public static void main(String[] args){
+        System.out.println("mainが動いています。");
+    }
+*/
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        @Override
+        protected void onCreate (Bundle savedInstanceState){
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_top);
+            reference = FirebaseDatabase.getInstance().getReference("非受注");
+            listView=(ListView) findViewById(R.id.topList);
+            arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayList);
+            listView.setAdapter(arrayAdapter);
 
-//        final ArrayList<String> data = new ArrayList<>();
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
-//        ListView list = (ListView) findViewById(R.id.list);
-//        list.setAdapter(adapter);
-//        data.add("胡椒");
-//        data.add("ターメリック");
-//        data.add("コリアンダー");
+            reference.child("非受注").addValueEventListener(listener);
 
-        ListView listView = (ListView) findViewById(R.id.list);
+            reference.addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot dataSnapshot , @Nullable String previousChildName) {
+                    String value =dataSnapshot.getValue(RequestData.class).toString();
+                    arrayList.add(value);
+                    arrayAdapter.notifyDataSetChanged();
+                    System.out.println("データを入れました。");
+                }
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("非受注").child("001").addValueEventListener(listener);
-//        reference.child("非受注").child("002").addValueEventListener(listener2);
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-        /*reference.addChildEventListener(new ChildEventListener() {
-            //            データを読み込むときはイベントリスナーを登録して行う。
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//                アイテムのリストを取得するか、アイテムのリストへの追加がないかリッスンします。
-                RequestData requestData = dataSnapshot.getValue(RequestData.class);
-//                adapter.add(requestData);
-//                adapter.notifyDataSetChanged();
-            }
+                }
 
-//            @Override
-//            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-////                リスト内のアイテムに対する変更がないかリッスンします。
-//
-//            }
-//
-//            @Override
-//            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-////                リストから削除されるアイテムがないかリッスンします。
-//                Log.d("ToDoActivity", "onChildRemoved:" + dataSnapshot.getKey());
-//                ToDoData result = dataSnapshot.getValue(ToDoData.class);
-//                if (result == null) return;
-//
-//                ToDoData item = mCustomAdapter.getUserDataKey(result.getFirebaseKey());
-//
-//                mCustomAdapter.remove(item);
-//                mCustomAdapter.notifyDataSetChanged();
-//            }
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot snapshot) {
 
-//            @Override
-//            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-////                並べ替えリストの項目順に変更がないかリッスンします。
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-////                ログを記録するなどError時の処理を記載する。
-//            }
-        });*/
+                }
 
-//        reference.child("key1").setValue("こんにちは！",null);
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+        reference.child("key1").setValue("こんにちは！",null);
 //        reference.child("key2").setValue("おはよう！",null);
 //        reference.child("key3").setValue("こんばんは！",null);
 //        reference.child("folder").child("a").child("ああああ！").setValue("いいいい！",null);
 //        reference.child("folder").child("b").setValue("2021/05/13",null);
 //        reference.child("folder").child("a").setValue("こんにちは",null);
-
 
 
 //      reference.child("提案").child("ID").child("提案者").setValue("提案者",null);
@@ -146,39 +136,25 @@ public class MainActivity extends AppCompatActivity {
 
         }
 */
-    }
+        }
 
-   ValueEventListener listener = new ValueEventListener()
-    {
-        public void onDataChange(DataSnapshot snapshot)
-        {
-            System.out.println("データを受信しました。 "
-                    + snapshot.getKey() + " = " + snapshot.getValue());
-            TextView text = findViewById(R.id.mainText);//ここでID付けしたテキストに繋がる。
-            text.setText(snapshot.getValue().toString());
-            for(int i=1; i<3; i++){
-                String value = String.valueOf(snapshot.getValue());
+        ValueEventListener listener = new ValueEventListener() {
+            public void onDataChange(DataSnapshot snapshot) {
+                System.out.println("データを受信しました。 "
+                        + snapshot.getKey() + " = " + snapshot.getValue());
+                TextView text = findViewById(R.id.textView);//ここでID付けしたテキストに繋がる。
+                text.setText(snapshot.getValue().toString());
 
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    Object object = ds.getValue(Object.class);
-//                    orders.add(object);
-//                    list.setAdapter(adapter);
-                }
-
-//                data.add(value);
-//                dataAdd(value);
             }
-        }
 
-        public void onCancelled(DatabaseError error)
-        {
-            System.out.println("データ受信がキャンセルされました。" + error.toString());
-        }
+            public void onCancelled(DatabaseError error) {
+                System.out.println("データ受信がキャンセルされました。" + error.toString());
+            }
 
-        //Button button = findViewById(R.id.buttonChangeMessage);
-        //button.setOnClickListener( new MyOnClickListener() );
+            //Button button = findViewById(R.id.buttonChangeMessage);
+            //button.setOnClickListener( new MyOnClickListener() );
 
-    };
+        };
 
 //    public static void dataAdd(String value){
 //
