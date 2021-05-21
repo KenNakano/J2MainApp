@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-        reference.child("key1").setValue("こんにちは！",null);
+//        reference.child("key1").setValue("こんにちは！",null);
 //        reference.child("key2").setValue("おはよう！",null);
 //        reference.child("key3").setValue("こんばんは！",null);
 //        reference.child("folder").child("a").child("ああああ！").setValue("いいいい！",null);
@@ -80,24 +80,25 @@ public class MainActivity extends AppCompatActivity {
 //        reference.child("folder").child("a").setValue("こんにちは",null);
 
 
-//      reference.child("提案").child("ID").child("提案者").setValue("提案者",null);
-//      reference.child("提案").child("ID").child("提案内容").setValue("提案内容",null);
-//		reference.child("提案").child("ID").child("受付締め切り").setValue("受付締め切り",null);
-//		reference.child("提案").child("ID").child("エリア（所属場所）").setValue("エリア（所属場所）",null);
-//		reference.child("提案").child("ID").child("備考【テキスト】").setValue("備考【テキスト】",null);
-//
-//		reference.child("提案済み（ペア成立）").child("ID").child("提案者").setValue("提案者",null);
-//		reference.child("提案済み（ペア成立）").child("ID").child("依頼者").setValue("依頼者",null);
-//		reference.child("提案済み（ペア成立）").child("ID").child("提案内容").setValue("提案内容",null);
-//		reference.child("提案済み（ペア成立）").child("ID").child("受付締め切り").setValue("受付締め切り",null);
-//		reference.child("提案済み（ペア成立）").child("ID").child("エリア（所属場所）").setValue("エリア（所属場所)",null);
-//		reference.child("提案済み（ペア成立）").child("ID").child("備考【テキスト】").setValue("備考【テキスト】",null);
-//
-//        reference.child("非受注").child("ID").child("提案者").setValue("提案者",null);
-//        reference.child("非受注").child("ID").child("提案内容").setValue("提案内容",null);
-//        reference.child("非受注").child("ID").child("受付締め切り").setValue("受付締め切り",null);
-//        reference.child("非受注").child("ID").child("エリア（所属場所）").setValue("エリア（所属場所）",null);
-//        reference.child("非受注").child("ID").child("備考【テキスト】").setValue("備考【テキスト】",null);
+/*
+      reference.child("01_提案").child("ID").child("01_proposer").setValue("Jack",null);
+      reference.child("01_提案").child("ID").child("02_about").setValue("About",null);
+      reference.child("01_提案").child("ID").child("03_deadline").setValue("????/??/??",null);
+      reference.child("01_提案").child("ID").child("04_area").setValue("London",null);
+      reference.child("01_提案").child("ID").child("05_etc").setValue("ABC",null);
+
+      reference.child("02_提案済み（ペア成立）").child("ID").child("01_proposer").setValue("Jack",null);
+      reference.child("02_提案済み（ペア成立）").child("ID").child("02_about").setValue("About",null);
+      reference.child("02_提案済み（ペア成立）").child("ID").child("03_deadline").setValue("????/??/??",null);
+      reference.child("02_提案済み（ペア成立）").child("ID").child("04_area").setValue("London",null);
+      reference.child("02_提案済み（ペア成立）").child("ID").child("05_etc").setValue("ABC",null);
+      reference.child("02_提案済み（ペア成立）").child("ID").child("06_requester").setValue("Dan",null);
+
+      reference.child("03_非受注").child("ID").child("01_requester").setValue("Jack",null);
+      reference.child("03_非受注").child("ID").child("02_about").setValue("About",null);
+      reference.child("03_非受注").child("ID").child("03_deadline").setValue("????/??/??",null);
+      reference.child("03_非受注").child("ID").child("04_area").setValue("London",null);
+      reference.child("03_非受注").child("ID").child("05_etc").setValue("ABC",null);
 
 //        reference.child("非受注").child("002").child("提案者").setValue("中野",null);
 //        reference.child("非受注").child("002").child("提案内容").setValue("ファミマのケーキが欲しい",null);
@@ -108,26 +109,27 @@ public class MainActivity extends AppCompatActivity {
 //        reference.child("非受注").child("001").child("備考【テキスト】").setValue(a[0],null);
 
 
-//        reference.child("受注済み（ペア成立）").child("ID").child("提案者").setValue("提案者",null);
-//        reference.child("受注済み（ペア成立）").child("ID").child("依頼者").setValue("依頼者",null);
-//        reference.child("受注済み（ペア成立）").child("ID").child("提案内容").setValue("提案内容",null);
-//        reference.child("受注済み（ペア成立）").child("ID").child("受付締め切り").setValue("受付締め切り",null);
-//        reference.child("受注済み（ペア成立）").child("ID").child("エリア（所属場所）").setValue("エリア（所属場所）",null);
-//        reference.child("受注済み（ペア成立）").child("ID").child("備考【テキスト】").setValue("備考【テキスト】",null);
+      reference.child("04_受注済み（ペア成立）").child("ID").child("01_requester").setValue("Dan",null);
+      reference.child("04_受注済み（ペア成立）").child("ID").child("02_about").setValue("About",null);
+      reference.child("04_受注済み（ペア成立）").child("ID").child("03_deadline").setValue("????/??/??",null);
+      reference.child("04_受注済み（ペア成立）").child("ID").child("04_area").setValue("London",null);
+      reference.child("04_受注済み（ペア成立）").child("ID").child("05_etc").setValue("ABC",null);
+      reference.child("04_受注済み（ペア成立）").child("ID").child("06_contractor").setValue("Jack",null);
 
-//会員情報
-//        reference.child("会員情報").child("会員番号").child("名前").setValue("？？",null);
-//        reference.child("会員情報").child("会員番号").child("性別").setValue("？？",null);
-//        reference.child("会員情報").child("会員番号").child("エリア").setValue("？？",null);
-//        reference.child("会員情報").child("会員番号").child("所持ポイント").setValue("？？",null);
-//        reference.child("会員情報").child("会員番号").child("その他").setValue("？？",null);
+    //会員情報
+        reference.child("05_会員情報").child("会員番号").child("01_name").setValue("？？",null);
+        reference.child("05_会員情報").child("会員番号").child("02_gender").setValue("？？",null);
+        reference.child("05_会員情報").child("会員番号").child("03_area").setValue("？？",null);
+        reference.child("05_会員情報").child("会員番号").child("04_point").setValue("？？",null);
+        reference.child("05_会員情報").child("会員番号").child("05_etc").setValue("？？",null);
 
-//店舗情報
-//        reference.child("店舗情報").child("店舗ID").child("店舗名").setValue("？？",null);
-//        reference.child("店舗情報").child("店舗ID").child("エリア").setValue("？？",null);
-//        reference.child("店舗情報").child("店舗ID").child("セール内容").child("セールID").child("セール品").setValue("？？",null);
-//        reference.child("店舗情報").child("店舗ID").child("セール内容").child("セールID").child("値段").setValue("？？",null);
-//        reference.child("店舗情報").child("店舗ID").child("セール内容").child("セールID").child("締め切り時間").setValue("？？",null);
+    //店舗情報
+        reference.child("06_店舗情報").child("店舗ID").child("01_storeName").setValue("？？",null);
+        reference.child("06_店舗情報").child("店舗ID").child("02_area").setValue("？？",null);
+        reference.child("06_店舗情報").child("店舗ID").child("03_sales").child("セールID").child("01_item").setValue("人参3本",null);
+        reference.child("06_店舗情報").child("店舗ID").child("03_sales").child("セールID").child("02_price").setValue("150",null);
+        reference.child("06_店舗情報").child("店舗ID").child("03_sales").child("セールID").child("03_deadline").setValue("XXXX/XX/XX",null);
+*/
 
 /*
         try {
@@ -176,9 +178,10 @@ public class MainActivity extends AppCompatActivity {
 //            System.out.println("データ受信がキャンセルされました。" + error.toString());
 //        }
 //
+//    };
+
 //        //Button button = findViewById(R.id.buttonChangeMessage);
 //        //button.setOnClickListener( new MyOnClickListener() );
-//
-//    };
+
 
 }

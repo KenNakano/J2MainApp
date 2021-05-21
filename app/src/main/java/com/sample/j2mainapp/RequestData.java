@@ -5,13 +5,15 @@ public class RequestData {
     private String etc;
     private String deadline;
     private String about;
-    private String name;
-    public RequestData(String area , String etc, String deadline , String about, String name){
+    private String requester;
+    private String id;
+    public RequestData(String area , String etc, String deadline , String about, String requester, String id){
         this.area=area;
         this.etc=etc;
         this.deadline=deadline;
         this.about=about;
-        this.name=name;
+        this.requester=requester;
+        this.id=id;
     }
 
     public String getArea() {
@@ -46,24 +48,33 @@ public class RequestData {
         this.about = about;
     }
 
-    public String getName() {
-        return name;
+    public String getRequester() {
+        return requester;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRequester(String requester) {
+        this.requester = requester;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 
-    public RequestData(String area , String about, String name){
-        this.area=area;
-        this.name=name;
+    public RequestData(String id , String about, String name){
+        this.id=id;
+        this.requester=name;
         this.about=about;
     }
     public RequestData(){
     }
     public String toString(){
-        return name + " : " + about ;
+        return id + ":" + requester + ":" + about ;
     }
+
 
 }

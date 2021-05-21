@@ -6,8 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,8 +27,54 @@ public class OrderReceive extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_receive);
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("order");
+        TextView text1 = findViewById(R.id.Content1);//ここでID付けしたテキストに繋がる。
+        TextView text2 = findViewById(R.id.Content2);//ここでID付けしたテキストに繋がる。
+        String[] data = new String[10];
+        int i = 0;
+
+        DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference("03_非受注/"+id);
+        reference1.addChildEventListener(new ChildEventListener() {
+                 @Override
+                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildValue) {
+                     System.out.println("ID"+ id +"のキーデータ：" + (String)snapshot.getKey());
+
+                     if(((String)snapshot.getKey()).compareTo("requester") == 0){
+                         String requestData = snapshot.getValue(String.class);
+                         text1.setText(requestData);
+                         System.out.println("Requester is " + requestData);
+                     }else if(((String)snapshot.getKey()).compareTo("about") == 0) {
+                         String requestData = snapshot.getValue(String.class);
+                         text2.setText(requestData);
+                         System.out.println("About is " + requestData);
+                     }
+                 }
+
+                 @Override
+                 public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                 }
+
+                 @Override
+                 public void onChildRemoved(@NonNull DataSnapshot snapshot) {
 
 
+                 }
+
+                 @Override
+                 public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                 }
+
+                 @Override
+                 public void onCancelled(@NonNull DatabaseError error) {
+
+                 }
+             }
+
+
+        );
 
         textView1 = (TextView) findViewById(R.id.content1);
         textView2 = (TextView) findViewById(R.id.Content2);
@@ -60,7 +109,7 @@ public class OrderReceive extends AppCompatActivity {
         //依頼受注画面→お断り画面に進むボタン
         Button RefuseButton = findViewById(R.id.RefuseButton);
 
-        //依頼受注画面→お断り画面に進むボタン
+        //Top画面→手伝う画面に進むボタンが操作された時の動作
         RefuseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
