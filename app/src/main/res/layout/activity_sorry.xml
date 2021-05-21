@@ -22,7 +22,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#9EFFC107"
+        android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
@@ -32,10 +32,11 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FCFCFC"
+            android:background="@color/brown"
             android:gravity="left"
             android:text="申し訳ございません。\n依頼を受ける人がいませんでした。"
 
+            android:textColor="@color/white"
             android:textSize="24sp" />
     </LinearLayout>
 

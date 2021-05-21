@@ -23,7 +23,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FBEF84"
+        android:background="@color/bezyu"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -31,9 +31,9 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="100dp"
+            android:gravity="center"
             android:text="店舗基本情報画面"
 
             android:textSize="24sp" />
@@ -51,12 +51,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="#ffffff"
             android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:text="○○店"
-             />
+            android:background="#ffffff"
+            android:text="○○店" />
 
         <TextView
             android:id="@+id/ShopAreaTitle"
@@ -71,12 +70,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:background="#ffffff"
-            android:text="○○駅近く"
-         />
+            android:text="○○駅近く" />
 
         <TextView
             android:id="@+id/ShopPhoneTitle"
@@ -91,12 +89,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:background="#ffffff"
-            android:text="080-796-888"
-             />
+            android:text="080-796-888" />
 
 
         <TextView
@@ -112,18 +109,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="#ffffff"
             android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:text="備考"
-            android:paddingBottom="60dp" />
+            android:background="#ffffff"
+            android:paddingBottom="60dp"
+            android:text="備考" />
 
         <Button
             android:id="@+id/WriteShopFinishButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="編集" />
+            android:text="編集"
+            app:backgroundTint="@color/red" />
 
 
     </LinearLayout>

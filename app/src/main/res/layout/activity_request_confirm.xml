@@ -59,7 +59,7 @@
         android:text="新しく手伝う"
         android:textSize="30sp"
         android:typeface="normal"
-        app:backgroundTint="@color/design_default_color_error"
+        app:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -84,21 +84,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="132dp"
                 android:text="コンビニでアイスを買ってきて欲しい人がいます"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:backgroundTint="@color/bezyu" />
 
             <Button
                 android:id="@+id/Irai2"
                 android:layout_width="match_parent"
                 android:layout_height="112dp"
                 android:text="CTC商店街の八百屋で大根を買ってきて欲しい人がいます"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:backgroundTint="@color/bezyu" />
 
             <Button
                 android:id="@+id/Irai3"
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
                 android:text="牛乳を買ってきて欲しい人がいます"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:backgroundTint="@color/bezyu" />
         </LinearLayout>
     </ScrollView>
 

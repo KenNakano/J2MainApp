@@ -51,7 +51,7 @@
         android:text="新しく頼む"
         android:textSize="30sp"
         android:typeface="normal"
-        app:backgroundTint="@color/design_default_color_error"
+        app:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -76,21 +76,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="132dp"
                 android:text="ファミリーマート 西船橋店へ行く人がいます"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:backgroundTint="@color/pink" />
 
             <Button
                 android:id="@+id/Receive2"
                 android:layout_width="match_parent"
                 android:layout_height="112dp"
                 android:text="スギ薬局 西船橋駅前店へ行く人がいます"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:backgroundTint="@color/pink" />
 
             <Button
                 android:id="@+id/Receive3"
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
                 android:text="CTC商店街へ行く人がいます"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:backgroundTint="@color/pink" />
 
 
         </LinearLayout>

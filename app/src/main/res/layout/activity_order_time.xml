@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="440dp"
             android:layout_weight="1"
-            android:background="#B2EAEA7E">
+            android:background="@color/bezyu">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -123,7 +123,8 @@
                     android:id="@+id/ToOrderFinishButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="荷物を受け取りましたか？" />
+                    android:text="荷物を受け取りましたか？"
+                    app:backgroundTint="@color/pink" />
             </LinearLayout>
         </ScrollView>
 

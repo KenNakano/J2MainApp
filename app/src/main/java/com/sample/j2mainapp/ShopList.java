@@ -60,17 +60,17 @@ public class ShopList extends AppCompatActivity {
 
 
         //お店一覧画面→ショップTop画面に進むボタン
-        Button BackShopTopButton = findViewById(R.id.ShopTopButton);
+        Button BackTopButton = findViewById(R.id.TopButton);
 
         //お店詳細画面→Top画面に進むボタン
-        BackShopTopButton.setOnClickListener(new View.OnClickListener() {
+        BackTopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //ボタンが押された時の処理
 
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
-                Intent intent = new Intent(ShopList.this, ShopTop.class);
+                Intent intent = new Intent(ShopList.this, Top.class);
                 //画面遷移
                 startActivity(intent);
 

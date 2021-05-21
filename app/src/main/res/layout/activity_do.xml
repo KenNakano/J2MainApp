@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#B2EAEA7E">
+            android:background="@color/bezyu">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,8 +40,10 @@
                     android:id="@+id/DoTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="実行中"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="24sp" />
 
                 <ImageView
@@ -97,7 +99,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    android:text="エリア" />
+                    android:text="エリア"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/Content3"
@@ -107,7 +110,7 @@
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="20dp"
-                    android:background="#FCFCFC"
+                    android:background="@color/white"
                     android:paddingBottom="30dp"
                     android:text="TextView" />
             </LinearLayout>
@@ -124,7 +127,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="完了" />
+                android:text="完了"
+                app:backgroundTint="@color/red" />
 
 
         </LinearLayout>

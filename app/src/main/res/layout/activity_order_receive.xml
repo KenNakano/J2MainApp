@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#B2EAEA7E">
+            android:background="@color/bezyu">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -115,14 +115,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="実行" />
+                android:text="実行"
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/RefuseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="お断り" />
+                android:text="お断り"
+                app:backgroundTint="@color/koibrown" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

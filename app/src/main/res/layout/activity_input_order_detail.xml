@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".InputOrderDetail">
 
     <TextView
@@ -26,6 +27,7 @@
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:ems="10"
         android:hint="欲しいものを入力"
         android:inputType="text"
@@ -42,6 +44,7 @@
         android:layout_height="54dp"
         android:text="完了 頼む!"
         android:textSize="24sp"
+        app:backgroundTint="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -67,6 +70,7 @@
         android:layout_width="280dp"
         android:layout_height="168dp"
         android:layout_marginTop="128dp"
+        android:background="@color/white"
         android:ems="10"
         android:hint="予算は？受け取り方は？"
         android:inputType="textPersonName"

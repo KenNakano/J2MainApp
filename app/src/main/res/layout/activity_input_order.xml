@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#B2EAEA7E">
+            android:background="@color/bezyu">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -135,14 +135,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="確定" />
+                android:text="確定"
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/IraiRefuseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="お断り" />
+                android:text="お断り"
+                app:backgroundTint="@color/koibrown" />
         </LinearLayout>
     </LinearLayout>
 

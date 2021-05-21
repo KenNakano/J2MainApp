@@ -6,27 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".Top">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif"
-        android:text="GO!KINJO"
-        android:textSize="30sp"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="411dp"
+        android:layout_height="143dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/roet5fkv" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="120dp"
         android:fontFamily="sans-serif"
         android:text="200 points"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -45,31 +42,35 @@
             android:id="@+id/RequestConfirmButton"
             android:layout_width="80dp"
             android:layout_height="84dp"
-            android:text="手伝う" />
+            android:text="手伝う"
+            app:backgroundTint="@color/koibrown" />
 
         <Button
             android:id="@+id/ReceiveConfirmButton"
             android:layout_width="80dp"
             android:layout_height="84dp"
-            android:text="頼む" />
+            android:text="頼む"
+            app:backgroundTint="@color/pink" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="80dp"
             android:layout_height="84dp"
+            app:backgroundTint="@color/red"
             app:icon="@android:drawable/ic_menu_add" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="80dp"
             android:layout_height="84dp"
-            android:text="My" />
+            android:text="My"
+            app:backgroundTint="@color/brown" />
 
         <Button
             android:id="@+id/ShopListButton"
             android:layout_width="80dp"
             android:layout_height="84dp"
-            android:text="店" />
+            app:icon="@drawable/ic_baseline_storefront_24" />
 
     </LinearLayout>
 
@@ -79,10 +80,12 @@
         android:layout_height="368dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.619">
+
+    </ListView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

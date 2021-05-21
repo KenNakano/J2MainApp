@@ -39,6 +39,7 @@
         android:layout_height="67dp"
         android:text="経費を払う"
         android:textSize="18sp"
+        app:backgroundTint="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

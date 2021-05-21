@@ -40,7 +40,7 @@ public class OrderReceive extends AppCompatActivity {
         //依頼受注画面→お断り画面に進むボタン
         Button RefuseButton = findViewById(R.id.RefuseButton);
 
-        //Top画面→手伝う画面に進むボタンが操作された時の動作
+        //依頼受注画面→お断り画面に進むボタン
         RefuseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ShopDetail">
 
     <Button
@@ -35,7 +36,7 @@
         android:id="@+id/textView"
         android:layout_width="376dp"
         android:layout_height="222dp"
-        android:background="#BDE9FD"
+        android:background="@color/bezyu"
         android:text="・フランスパンの香ばしさがウリ\n・夕方5時からタイムセール！"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
@@ -57,7 +58,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.802"
         tools:srcCompat="@tools:sample/avatars" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
