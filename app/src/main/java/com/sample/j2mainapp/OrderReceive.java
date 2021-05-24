@@ -11,10 +11,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.DataCollectionDefaultChange;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class OrderReceive extends AppCompatActivity {
 
@@ -28,7 +30,7 @@ public class OrderReceive extends AppCompatActivity {
         setContentView(R.layout.activity_order_receive);
         Intent intent = getIntent();
         String id = intent.getStringExtra("order");
-        textView1 = findViewById(R.id.Content1);
+        textView1 = findViewById(R.id.content1);
         textView2 = findViewById(R.id.Content2);
         textView3 = findViewById(R.id.Content3);//ここでID付けしたテキストに繋がる。
 
