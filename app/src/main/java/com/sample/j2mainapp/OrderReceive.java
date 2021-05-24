@@ -76,6 +76,8 @@ public class OrderReceive extends AppCompatActivity {
 
                  }
              }
+
+
         );
 
 //        textView1 = (TextView) findViewById(R.id.content1);

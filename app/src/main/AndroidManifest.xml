@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.J2MainApp">
-        <activity android:name=".CouponList"></activity>
+        <activity android:name=".ShopLogin"></activity>
+        <activity android:name=".CouponList" />
         <activity android:name=".ShopListWrite" />
         <activity android:name=".InputShopInformation" />
         <activity android:name=".ShopTop" />
@@ -37,10 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!--<meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />-->
     </application>
 
 </manifest>

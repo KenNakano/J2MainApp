@@ -52,5 +52,27 @@ public class ShopTop extends AppCompatActivity {
 
             }
         });
+
+        //お店トップ画面→ログイン画面に進む（ログアウトボタンクリック）
+        final Button ShopLogOutButton = findViewById(R.id.LogOutButton);
+
+        //お店トップ画面→ログイン画面に進む（ログアウトボタンクリック）
+        ShopLogOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ボタンが押された時の処理
+
+                //インテントの作成
+                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
+                Intent intent = new Intent(ShopTop.this, ShopLogin.class);
+                //画面遷移
+                startActivity(intent);
+
+            }
+        });
     }
+
+
+
+
 }
