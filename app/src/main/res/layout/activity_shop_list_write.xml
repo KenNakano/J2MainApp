@@ -19,19 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.003" />
 
-    <EditText
-        android:id="@+id/editTextTextShopSale"
-        android:layout_width="331dp"
-        android:layout_height="71dp"
-        android:ems="10"
-        android:hint="発信したいことなんでも"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.779" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -54,14 +41,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <EditText
+        android:id="@+id/editTextTextShopSale"
+        android:layout_width="331dp"
+        android:layout_height="71dp"
+        android:ems="10"
+        android:hint="発信したいことなんでも"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.779" />
+
     <Button
         android:id="@+id/ShopSaleWriteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
         android:text="投稿"
         app:backgroundTint="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
         app:layout_constraintVertical_bias="0.328" />

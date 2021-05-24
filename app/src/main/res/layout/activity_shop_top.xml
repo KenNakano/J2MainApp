@@ -6,16 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".ShopTop">
 
+    <Button
+        android:id="@+id/LogOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ログアウト"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="409dp"
         android:layout_height="190dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/roet5fkv" />
@@ -24,10 +35,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="52dp"
         android:text="店舗情報発信アプリ"
         android:textSize="30sp"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,33 +47,41 @@
         android:id="@+id/InputShopInformationButton"
         android:layout_width="242dp"
         android:layout_height="86dp"
-        android:layout_marginStart="85dp"
-        android:layout_marginLeft="85dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginRight="84dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginTop="248dp"
         android:text="お店基本情報\n確認・編集"
         android:textSize="18sp"
         app:backgroundTint="@color/brown"
-        app:layout_constraintBottom_toTopOf="@+id/ShopListWriteButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/ShopListWriteButton"
         android:layout_width="242dp"
         android:layout_height="86dp"
-        android:layout_marginTop="312dp"
         android:text="掲示板編集"
         android:textSize="18sp"
         app:backgroundTint="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/InputShopInformationButton"
+        app:layout_constraintVertical_bias="0.222" />
 
+    <Button
+        android:id="@+id/CouponHaisinButton"
+        android:layout_width="242dp"
+        android:layout_height="86dp"
+        android:text="クーポン配信"
+        android:textSize="18sp"
+        app:backgroundTint="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ShopListWriteButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
