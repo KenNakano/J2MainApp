@@ -34,16 +34,8 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top);
         listView = findViewById(R.id.topList);
-        listView.setOnItemClickListener((AdapterView.OnItemClickListener) this);
+//        listView.setOnItemClickListener((AdapterView.OnItemClickListener) this);
 
-//        switch (pos) {
-//            case 0:
-//                startActivity(new Intent(this, RequestData.class));
-//                break;
-//            case 1:
-//                startActivity(new Intent(this, RequestData.class));
-//                break;
-//        }
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("03_非受注");
         arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayList);
@@ -82,15 +74,29 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
 //
 //        reference.child("001").addValueEventListener(listener);
 //
-
         i = i + 3;
 
-//        reference.child(String.valueOf(i)).child("id").setValue(String.valueOf(i),null);
-//        reference.child(String.valueOf(i)).child("requester").setValue("向井",null);
-//        reference.child(String.valueOf(i)).child("about").setValue("キッチンペーパーが欲しい",null);
-//        reference.child(String.valueOf(i)).child("deadline").setValue("2021/05/23;17:00",null);
-//        reference.child(String.valueOf(i)).child("area").setValue("豊洲",null);
-//        reference.child(String.valueOf(i)).child("etc").setValue("急ぎではありません",null);
+        DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference("05_会員情報");
+
+//        reference1.child(String.valueOf(i)).child("id").setValue(String.valueOf(i),null);
+//        reference1.child(String.valueOf(i)).child("proposer").setValue("澤野",null);
+//        reference1.child(String.valueOf(i)).child("about").setValue("ビックカメラ",null);
+//        reference1.child(String.valueOf(i)).child("deadline").setValue("2021/05/26;20:00",null);
+//        reference1.child(String.valueOf(i)).child("area").setValue("船橋",null);
+//        reference1.child(String.valueOf(i)).child("etc").setValue("XXX",null);
+//
+//        reference1.child(String.valueOf(i)).child("id").setValue(String.valueOf(i),null);
+//        reference1.child(String.valueOf(i)).child("area").setValue("新小岩",null);
+//        reference1.child(String.valueOf(i)).child("etc").setValue("",null);
+//        reference1.child(String.valueOf(i)).child("storeName").setValue("西船橋喫茶",null);
+//        reference1.child(String.valueOf(i)).child("sales").setValue("毎月4日に新作のケーキを出してます。",null);
+
+        reference1.child(String.valueOf(i)).child("id").setValue(String.valueOf(i),null);
+        reference1.child(String.valueOf(i)).child("area").setValue("葛西",null);
+        reference1.child(String.valueOf(i)).child("etc").setValue("",null);
+        reference1.child(String.valueOf(i)).child("name").setValue("明田",null);
+        reference1.child(String.valueOf(i)).child("gender").setValue("Female",null);
+        reference1.child(String.valueOf(i)).child("point").setValue("320",null);
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override

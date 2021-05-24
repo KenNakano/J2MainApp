@@ -71,31 +71,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/Receive1"
+            <ListView
+                android:id="@+id/SuggestList"
                 android:layout_width="match_parent"
-                android:layout_height="132dp"
-                android:text="ファミリーマート 西船橋店へ行く人がいます"
-                android:textSize="18sp"
-                app:backgroundTint="@color/pink" />
-
-            <Button
-                android:id="@+id/Receive2"
-                android:layout_width="match_parent"
-                android:layout_height="112dp"
-                android:text="スギ薬局 西船橋駅前店へ行く人がいます"
-                android:textSize="18sp"
-                app:backgroundTint="@color/pink" />
-
-            <Button
-                android:id="@+id/Receive3"
-                android:layout_width="match_parent"
-                android:layout_height="136dp"
-                android:text="CTC商店街へ行く人がいます"
-                android:textSize="18sp"
-                app:backgroundTint="@color/pink" />
-
-
+                android:layout_height="424dp" />
         </LinearLayout>
     </ScrollView>
 

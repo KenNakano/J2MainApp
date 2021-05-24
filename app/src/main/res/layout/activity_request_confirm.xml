@@ -71,37 +71,20 @@
         android:layout_width="397dp"
         android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView3">
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.481">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/Irai1"
+            <ListView
+                android:id="@+id/RequestList"
                 android:layout_width="match_parent"
-                android:layout_height="132dp"
-                android:text="コンビニでアイスを買ってきて欲しい人がいます"
-                android:textSize="18sp"
-                app:backgroundTint="@color/bezyu" />
-
-            <Button
-                android:id="@+id/Irai2"
-                android:layout_width="match_parent"
-                android:layout_height="112dp"
-                android:text="CTC商店街の八百屋で大根を買ってきて欲しい人がいます"
-                android:textSize="18sp"
-                app:backgroundTint="@color/bezyu" />
-
-            <Button
-                android:id="@+id/Irai3"
-                android:layout_width="match_parent"
-                android:layout_height="136dp"
-                android:text="牛乳を買ってきて欲しい人がいます"
-                android:textSize="18sp"
-                app:backgroundTint="@color/bezyu" />
+                android:layout_height="391dp" />
         </LinearLayout>
     </ScrollView>
 

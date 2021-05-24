@@ -1,7 +1,5 @@
 package com.sample.j2mainapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +8,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,18 +31,62 @@ public class InputOrder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_order);
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("order");
 
         editText = (EditText)findViewById(R.id.editTextTextPersonName2);
         textView1 = (TextView) findViewById(R.id.content1);
         textView2 = (TextView) findViewById(R.id.Content2);
         textView3 = (TextView) findViewById(R.id.Content3);
 
-
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("01_提案").child("ID").child("proposer").addValueEventListener(listener);
-        reference.child("01_提案").child("ID").child("about").addValueEventListener(listener2);
-        reference.child("01_提案").child("ID").child("area").addValueEventListener(listener3);
+//        reference.child("01_提案").child("ID").child("proposer").addValueEventListener(listener);
+//        reference.child("01_提案").child("ID").child("about").addValueEventListener(listener2);
+//        reference.child("01_提案").child("ID").child("area").addValueEventListener(listener3);
 
+        DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference("01_提案/"+id);
+        reference1.addChildEventListener(new ChildEventListener() {
+             @Override
+             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildValue) {
+                 System.out.println("ID"+ id +"のキーデータ：" + (String)snapshot.getKey());
+
+                 if(((String)snapshot.getKey()).compareTo("proposer") == 0){
+                     String requestData = snapshot.getValue(String.class);
+                     textView1.setText(requestData);
+                     System.out.println("Proposer is " + requestData);
+                 }else if(((String)snapshot.getKey()).compareTo("about") == 0) {
+                     String requestData = snapshot.getValue(String.class);
+                     textView2.setText(requestData);
+                     System.out.println("About is " + requestData);
+                 }else if(((String)snapshot.getKey()).compareTo("area") == 0) {
+                     String requestData = snapshot.getValue(String.class);
+                     textView3.setText(requestData);
+                     System.out.println("Area is " + requestData);
+                 }
+             }
+
+             @Override
+             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+             }
+
+             @Override
+             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+
+             }
+
+             @Override
+             public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+             }
+
+             @Override
+             public void onCancelled(@NonNull DatabaseError error) {
+
+             }
+         }
+        );
 
 
         //依頼側　ついでに依頼画面→　実行者がタスクを完了するまで待機する画面に進む(実行ボタンを押したとき)
