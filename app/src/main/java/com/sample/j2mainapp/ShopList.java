@@ -19,7 +19,7 @@ public class ShopList extends AppCompatActivity {
         setContentView(R.layout.activity_shop_list);
 
         // ListViewに表示するリスト項目をArrayListで準備する
-        ArrayList data = new ArrayList<>();
+        /*ArrayList data = new ArrayList<>();
         data.add("○○パン屋");
         data.add("△△商店街 八百屋");
         data.add("西船橋喫茶店");
@@ -35,7 +35,7 @@ public class ShopList extends AppCompatActivity {
 
         // ListViewにArrayAdapterを設定する
         ListView listView = (ListView)findViewById(R.id.listView);
-        listView.setAdapter(adapter);
+        listView.setAdapter(adapter);*/
 
 
 
