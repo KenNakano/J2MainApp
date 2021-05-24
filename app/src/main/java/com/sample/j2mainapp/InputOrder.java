@@ -19,12 +19,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class InputOrder extends AppCompatActivity {
 
     private EditText editText;
     private TextView textView1;
     private TextView textView2;
     private TextView textView3;
+    HashMap<String, String> request = new HashMap<String, String>();
 
 
     @Override
@@ -34,8 +37,8 @@ public class InputOrder extends AppCompatActivity {
         Intent intent = getIntent();
         String id = intent.getStringExtra("order");
 
-        editText = (EditText)findViewById(R.id.editTextTextPersonName2);
-        textView1 = (TextView) findViewById(R.id.content1);
+        editText = (EditText)findViewById(R.id.editText);
+        textView1 = (TextView) findViewById(R.id.Content1);
         textView2 = (TextView) findViewById(R.id.Content2);
         textView3 = (TextView) findViewById(R.id.Content3);
 
@@ -63,6 +66,7 @@ public class InputOrder extends AppCompatActivity {
                      textView3.setText(requestData);
                      System.out.println("Area is " + requestData);
                  }
+                 request.put((String)snapshot.getKey(),(String)snapshot.getValue());
              }
 
              @Override
@@ -110,9 +114,9 @@ public class InputOrder extends AppCompatActivity {
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
                 Intent intent = new Intent(InputOrder.this,OrderTime.class);
+                intent.putExtra("InputOrder_OrderTime",request);
                 //画面遷移
                 startActivity(intent);
-
             }
         });
 
@@ -159,7 +163,7 @@ public class InputOrder extends AppCompatActivity {
     {
         public void onDataChange(DataSnapshot snapshot)
         {
-            TextView text = findViewById(R.id.content1);//ここでID付けしたテキストに繋がる。
+            TextView text = findViewById(R.id.Content1);//ここでID付けしたテキストに繋がる。
             String message = (String)snapshot.getValue();
             text.setText(message);  //TextViewにlistenerによってDBから受信したメッセージを表示
         }

@@ -73,7 +73,7 @@ public class RequestData {
     public RequestData(){
     }
     public String toString(){
-        return id + ":" + requester + ":" + about ;
+        return "依頼:" + id + ":" + requester + ":" + about ;
     }
 
 

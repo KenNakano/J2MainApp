@@ -1,38 +1,44 @@
 package com.sample.j2mainapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class OrderTime extends AppCompatActivity {
 
     private TextView textView1;
     private TextView textView2;
     private TextView textView3;
+    HashMap<String, String> request = new HashMap<String, String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_time);
 
-        textView1 = (TextView) findViewById(R.id.content1);
+        textView1 = (TextView) findViewById(R.id.Content1);
         textView2 = (TextView) findViewById(R.id.Content2);
         textView3 = (TextView) findViewById(R.id.Content3);
+        Intent intent = getIntent();
+        request = (HashMap<String, String>)intent.getSerializableExtra("InputOrder_OrderTime");
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("01_提案").child("ID").child("proposer").addValueEventListener(listener);
-        reference.child("01_提案").child("ID").child("about").addValueEventListener(listener2);
-        reference.child("01_提案").child("ID").child("area").addValueEventListener(listener3);
+//        reference.child("01_提案").child("ID").child("proposer").addValueEventListener(listener);
+//        reference.child("01_提案").child("ID").child("about").addValueEventListener(listener2);
+//        reference.child("01_提案").child("ID").child("area").addValueEventListener(listener3);
+
+        textView1.setText((String) request.get("proposer"));
+        textView2.setText((String) request.get("about"));
+        textView3.setText((String) request.get("area"));
 
 
 
@@ -78,11 +84,12 @@ public class OrderTime extends AppCompatActivity {
 
     }
     //DBの結果をニックネームに表示
+/*
     ValueEventListener listener = new ValueEventListener()
     {
         public void onDataChange(DataSnapshot snapshot)
         {
-            TextView text = findViewById(R.id.content1);//ここでID付けしたテキストに繋がる。
+            TextView text = findViewById(R.id.Content1);//ここでID付けしたテキストに繋がる。
             String message = (String)snapshot.getValue();
             text.setText(message);  //TextViewにlistenerによってDBから受信したメッセージを表示
         }
@@ -113,4 +120,5 @@ public class OrderTime extends AppCompatActivity {
         public void onCancelled(DatabaseError error) {
         }
     };
+*/
 }

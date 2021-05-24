@@ -73,6 +73,6 @@ public class SuggestData {
     public SuggestData(){
     }
     public String toString(){
-        return id + ":" + proposer + ":" + about ;
+        return "提案:" + id + ":" + proposer + ":" + about ;
     }
 }

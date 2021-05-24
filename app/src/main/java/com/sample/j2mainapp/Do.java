@@ -8,31 +8,40 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import java.util.HashMap;
 
 public class Do extends AppCompatActivity {
 
     private TextView textView1;
     private TextView textView2;
     private TextView textView3;
+    HashMap<String, String> request = new HashMap<String, String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_do);
 
-        textView1 = (TextView) findViewById(R.id.content1);
+        textView1 = (TextView) findViewById(R.id.Content1);
         textView2 = (TextView) findViewById(R.id.Content2);
         textView3 = (TextView) findViewById(R.id.Content3);
 
+/*
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         reference.child("03_非受注").child("1").child("requester").addValueEventListener(listener);
         reference.child("03_非受注").child("1").child("about").addValueEventListener(listener2);
         reference.child("03_非受注").child("1").child("area").addValueEventListener(listener3);
+*/
+
+        Intent intent = getIntent();
+        request = (HashMap<String, String>)intent.getSerializableExtra("OrderReceive_Do");
+        System.out.println("Do_request  " + (String) request.get("requester"));
+        System.out.println("Do_about  " + (String) request.get("about"));
+        System.out.println("Do_area  " + (String) request.get("area"));
+
+        textView1.setText((String) request.get("requester"));
+        textView2.setText((String) request.get("about"));
+        textView3.setText((String) request.get("area"));
 
         //実行中画面→完了画面に進むボタン
         Button FinishButton = findViewById(R.id.FinishButton);
@@ -46,6 +55,7 @@ public class Do extends AppCompatActivity {
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
                 Intent intent = new Intent(Do.this, FinishPoint.class);
+                intent.putExtra("Do_FinishPoint",request);
                 //画面遷移
                 startActivity(intent);
 
@@ -72,6 +82,7 @@ public class Do extends AppCompatActivity {
         });
     }
     //DBの結果をニックネームに表示
+/*
     ValueEventListener listener = new ValueEventListener()
     {
         public void onDataChange(DataSnapshot snapshot)
@@ -107,4 +118,5 @@ public class Do extends AppCompatActivity {
         public void onCancelled(DatabaseError error) {
         }
     };
+*/
 }

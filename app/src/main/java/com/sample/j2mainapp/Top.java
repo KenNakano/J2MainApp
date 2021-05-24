@@ -36,15 +36,24 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
         listView = findViewById(R.id.topList);
 //        listView.setOnItemClickListener((AdapterView.OnItemClickListener) this);
 
-
+        //依頼リスト表示
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("03_非受注");
         arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayList);
-
         try{
             listView.setAdapter(arrayAdapter);
         }catch(NullPointerException e){
             e.printStackTrace();
         }
+
+        //依頼リスト表示
+        DatabaseReference referenceA = FirebaseDatabase.getInstance().getReference("01_提案");
+        arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayList);
+        try{
+            listView.setAdapter(arrayAdapter);
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -58,15 +67,24 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
                     System.out.println(oneValue);
                 }System.out.println("データを分割しました。");
 
-                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
-//                OrderReceive.topOrder(values[0]);
-                Intent intent = new Intent(Top.this, OrderReceive.class);
-                //画面遷移
-                intent.putExtra("order",values[0]);
+                if(values[0].compareTo("依頼") == 0){
+                    //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
+                    Intent intent = new Intent(Top.this, OrderReceive.class);
+                    //画面遷移
+                    intent.putExtra("order",values[1]);
+                    startActivity(intent);
+//                    System.out.println("クリック！→" + item);
+                }else if(values[0].compareTo("提案") == 0){
+                    Intent intent = new Intent(Top.this, InputOrder.class);
+                    intent.putExtra("order",values[1]);
+                    startActivity(intent);
+                }else if(values[0].compareTo("店舗から") == 0){
+//                    Intent intent = new Intent(Top.this, InputOrder.class);
+//                    intent.putExtra("order",values[1]);
+//                    startActivity(intent);
+//                    System.out.println("クリック！→" + item);
+                }
 
-                startActivity(intent);
-
-                System.out.println("クリック！→" + item);
 //                reference.child("").child(item).addValueEventListener(listener);
             }
         });
@@ -74,7 +92,7 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
 //
 //        reference.child("001").addValueEventListener(listener);
 //
-        i = i + 3;
+        i = i + 2;
 
         DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference("05_会員情報");
 
@@ -91,13 +109,14 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
 //        reference1.child(String.valueOf(i)).child("storeName").setValue("西船橋喫茶",null);
 //        reference1.child(String.valueOf(i)).child("sales").setValue("毎月4日に新作のケーキを出してます。",null);
 
-        reference1.child(String.valueOf(i)).child("id").setValue(String.valueOf(i),null);
-        reference1.child(String.valueOf(i)).child("area").setValue("葛西",null);
-        reference1.child(String.valueOf(i)).child("etc").setValue("",null);
-        reference1.child(String.valueOf(i)).child("name").setValue("明田",null);
-        reference1.child(String.valueOf(i)).child("gender").setValue("Female",null);
-        reference1.child(String.valueOf(i)).child("point").setValue("320",null);
+//        reference1.child(String.valueOf(i)).child("id").setValue(String.valueOf(i),null);
+//        reference1.child(String.valueOf(i)).child("area").setValue("葛西",null);
+//        reference1.child(String.valueOf(i)).child("etc").setValue("???",null);
+//        reference1.child(String.valueOf(i)).child("name").setValue("斎藤",null);
+//        reference1.child(String.valueOf(i)).child("gender").setValue("Female",null);
+//        reference1.child(String.valueOf(i)).child("point").setValue("1200",null);
 
+        //依頼データリスト追加
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot , @Nullable String previousChildName) {
@@ -133,6 +152,44 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
 
             }
         });
+
+        //提案データリスト追加
+        referenceA.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot , @Nullable String previousChildName) {
+                try {
+                    String value = dataSnapshot.getValue(SuggestData.class).toString();
+                    arrayList.add(value);
+                    arrayAdapter.notifyDataSetChanged();
+
+                    System.out.println("value: " + value);
+
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         //Top画面→店舗一覧画面に進むボタン
         final Button ShopListbutton = findViewById(R.id.ShopListButton);

@@ -62,7 +62,7 @@
                     android:text="ニックネーム" />
 
                 <TextView
-                    android:id="@+id/content1"
+                    android:id="@+id/Content1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
