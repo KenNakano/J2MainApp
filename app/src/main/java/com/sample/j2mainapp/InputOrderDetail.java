@@ -25,7 +25,7 @@ public class InputOrderDetail extends AppCompatActivity {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
         editText = (EditText)findViewById(R.id.editTextTextPersonName2);
-        editText2 = (EditText)findViewById(R.id.editTextTextPersonName);
+        editText2 = (EditText)findViewById(R.id.editText);
 
         //実行側　詳細情報入力画面→Top画面に進むボタン(完了ボタンが押されたとき)
         final Button FinishGoButton = findViewById(R.id.kanryo);
