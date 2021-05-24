@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.J2MainApp">
-        <activity android:name=".Top"></activity>
+        <activity android:name=".ShopLogin"></activity>
         <activity android:name=".CouponList" />
         <activity android:name=".ShopListWrite" />
         <activity android:name=".InputShopInformation" />
@@ -31,7 +31,7 @@
         <activity android:name=".OrderReceive" />
         <activity android:name=".MainActivity" />
         <activity android:name=".DatabaseUpdate" />
-        <activity android:name=".ShopLogin">
+        <activity android:name=".Top">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
