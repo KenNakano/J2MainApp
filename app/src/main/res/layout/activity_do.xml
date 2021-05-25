@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    android:text="ニックネーム" />
+                    android:text="ニックネーム（依頼者）" />
 
                 <TextView
                     android:id="@+id/Content1"

@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.DataCollectionDefaultChange;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -159,7 +160,7 @@ public class OrderReceive extends AppCompatActivity {
 //    {
 //        public void onDataChange(DataSnapshot snapshot)
 //        {
-//            TextView text = findViewById(R.id.content1);//ここでID付けしたテキストに繋がる。
+//            TextView text = findViewById(R.id.Content1);//ここでID付けしたテキストに繋がる。
 //            String message = (String)snapshot.getValue();
 //            text.setText(message);  //TextViewにlistenerによってDBから受信したメッセージを表示
 //        }

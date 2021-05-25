@@ -14,6 +14,9 @@ public class ShopTop extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_top);
 
+        Intent intent = getIntent();
+        String ID = intent.getStringExtra("order");
+
 
         //お店トップ画面→お店基本情報編集画面に進むボタン
         final Button ShopInformationbutton = findViewById(R.id.InputShopInformationButton);
@@ -27,6 +30,7 @@ public class ShopTop extends AppCompatActivity {
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
                 Intent intent = new Intent(ShopTop.this, InputShopInformation.class);
+                intent.putExtra("order",ID);
                 //画面遷移
                 startActivity(intent);
 
@@ -47,6 +51,7 @@ public class ShopTop extends AppCompatActivity {
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
                 Intent intent = new Intent(ShopTop.this, ShopListWrite.class);
+                intent.putExtra("order",ID);
                 //画面遷移
                 startActivity(intent);
 
