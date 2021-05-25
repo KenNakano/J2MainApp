@@ -7,18 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class InputShopInformation extends AppCompatActivity {
+public class ShopInformaitonWrite extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_input_shop_information);
+        setContentView(R.layout.activity_shop_informaiton_write);
 
 
-        //店側　お店基本情報表示画面→ShopTop画面に進むボタン
+        //店側　お店基本情報編集画面→ShopTop画面に進むボタン
         final Button BackShopTopButton = findViewById(R.id.ShopTopButton);
 
-        //実行側　詳細情報入力画面→Top画面に進むボタンが操作された時の動作
+        //店側　お店基本情報編集画面→ShopTop画面に進むボタン
         BackShopTopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,7 +26,7 @@ public class InputShopInformation extends AppCompatActivity {
 
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
-                Intent intent = new Intent(InputShopInformation.this, ShopTop.class);
+                Intent intent = new Intent(ShopInformaitonWrite.this, ShopTop.class);
                 //画面遷移
                 startActivity(intent);
 
@@ -34,22 +34,24 @@ public class InputShopInformation extends AppCompatActivity {
         });
 
 
-        //店側　お店基本情報表示画面→お店基本情報表示編集　画面に進むボタン
-        final Button WriteShopFinishButton= findViewById(R.id.WriteShopFinishButton);
 
-        //店側　お店基本情報表示画面→お店基本情報表示編集　画面に進むボタン
-        WriteShopFinishButton.setOnClickListener(new View.OnClickListener() {
+        //店側　お店基本情報編集画面→　お店基本情報画面に進むボタン（編集完了ボタン）
+        final Button WrittenShopFinishButton = findViewById(R.id.WrittenShopFinishButton);
+
+        //店側　お店基本情報編集画面→　お店基本情報画面に進むボタン（編集完了ボタン）
+        WrittenShopFinishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //ボタンが押された時の処理
 
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
-                Intent intent = new Intent(InputShopInformation.this, ShopInformaitonWrite.class);
+                Intent intent = new Intent(ShopInformaitonWrite.this, InputShopInformation.class);
                 //画面遷移
                 startActivity(intent);
 
             }
         });
     }
+
 }

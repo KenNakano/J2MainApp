@@ -151,7 +151,7 @@ public class ShopList extends AppCompatActivity {
 */
 
 
-        //お店一覧画面→ショップTop画面に進むボタン
+        //お店一覧画面→Top画面に進むボタン
         Button BackTopButton = findViewById(R.id.TopButton);
 
         //お店詳細画面→Top画面に進むボタン
