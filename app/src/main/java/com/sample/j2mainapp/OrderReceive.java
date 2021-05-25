@@ -30,7 +30,7 @@ public class OrderReceive extends AppCompatActivity {
         setContentView(R.layout.activity_order_receive);
         Intent intent = getIntent();
         String id = intent.getStringExtra("order");
-        textView1 = findViewById(R.id.content1);
+        textView1 = findViewById(R.id.Content1);
         textView2 = findViewById(R.id.Content2);
         textView3 = findViewById(R.id.Content3);//ここでID付けしたテキストに繋がる。
 
@@ -154,7 +154,7 @@ public class OrderReceive extends AppCompatActivity {
 //    {
 //        public void onDataChange(DataSnapshot snapshot)
 //        {
-//            TextView text = findViewById(R.id.content1);//ここでID付けしたテキストに繋がる。
+//            TextView text = findViewById(R.id.Content1);//ここでID付けしたテキストに繋がる。
 //            String message = (String)snapshot.getValue();
 //            text.setText(message);  //TextViewにlistenerによってDBから受信したメッセージを表示
 //        }

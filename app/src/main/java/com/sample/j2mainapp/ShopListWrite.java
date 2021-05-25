@@ -21,11 +21,14 @@ public class ShopListWrite extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_list_write);
 
+        Intent intent = getIntent();
+        String ID = intent.getStringExtra("order");
+
         editText = (EditText) findViewById(R.id.editTextTextShopSale);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
-        String ID = "1";
+//        String ID = "1";
 
 
 
@@ -38,9 +41,11 @@ public class ShopListWrite extends AppCompatActivity {
             public void onClick(View v) {
                 //ボタンが押された時の処理
                 String text = editText.getText().toString();
+                int salesID = 1;
                 if(!text.equals("")){
                     Toast.makeText(v.getContext(),text,Toast.LENGTH_SHORT).show();
-                    reference.child("06_店舗情報").child(ID).child("sales").setValue(text,null);
+                    reference.child("06_店舗情報").child(ID).child("sales").child(String.valueOf(salesID)).setValue(text,null);
+                    salesID ++;
                 }
                 else {
                     Toast.makeText(v.getContext(), "入力してください", Toast.LENGTH_SHORT).show();
@@ -48,6 +53,7 @@ public class ShopListWrite extends AppCompatActivity {
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
                 Intent intent = new Intent(ShopListWrite.this,ShopTop.class);
+                intent.putExtra("order",ID);
                 //画面遷移
                 startActivity(intent);
 
@@ -67,6 +73,7 @@ public class ShopListWrite extends AppCompatActivity {
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
                 Intent intent = new Intent(ShopListWrite.this, ShopTop.class);
+                intent.putExtra("order",ID);
                 //画面遷移
                 startActivity(intent);
 
