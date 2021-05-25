@@ -18,11 +18,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class OrderReceive extends AppCompatActivity {
 
     private TextView textView1;
     private TextView textView2;
     private TextView textView3;
+    HashMap<String, String> request = new HashMap<String, String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,9 @@ public class OrderReceive extends AppCompatActivity {
                          String requestData = snapshot.getValue(String.class);
                          textView3.setText(requestData);
                          System.out.println("Area is " + requestData);
+
                      }
+                     request.put((String)snapshot.getKey(),(String)snapshot.getValue());
                  }
 
                  @Override
@@ -80,7 +85,7 @@ public class OrderReceive extends AppCompatActivity {
 
         );
 
-//        textView1 = (TextView) findViewById(R.id.content1);
+//        textView1 = (TextView) findViewById(R.id.Content1);
 //        textView2 = (TextView) findViewById(R.id.Content2);
 //        textView3 = (TextView) findViewById(R.id.Content3);
 //
@@ -103,6 +108,7 @@ public class OrderReceive extends AppCompatActivity {
                 //インテントの作成
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
                 Intent intent = new Intent(OrderReceive.this, Do.class);
+                intent.putExtra("OrderReceive_Do",request);
                 //画面遷移
                 startActivity(intent);
 

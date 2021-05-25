@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InputShopInformation">
+    tools:context=".ShopInformaitonWrite">
+
 
     <Button
         android:id="@+id/ShopTopButton"
@@ -28,13 +29,13 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/testtext8"
+            android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="100dp"
             android:gravity="center"
-            android:text="店舗基本情報画面"
+            android:text="店舗基本情報編集画面"
 
             android:textSize="24sp" />
 
@@ -46,16 +47,18 @@
             android:layout_marginEnd="20dp"
             android:text="店名" />
 
-        <TextView
-            android:id="@+id/ShopNameContent"
+        <EditText
+            android:id="@+id/WriteShopNameContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="0dp"
+            android:inputType="text"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:background="#ffffff"
-            android:text="○○店" />
+            android:ems="5"
+            android:hint="店名" />
 
         <TextView
             android:id="@+id/ShopAreaTitle"
@@ -65,8 +68,8 @@
             android:layout_marginEnd="20dp"
             android:text="エリア" />
 
-        <TextView
-            android:id="@+id/ShopAreaContent"
+        <EditText
+            android:id="@+id/WriteShopAreaContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -74,7 +77,9 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:background="#ffffff"
-            android:text="○○駅近く" />
+            android:inputType="text"
+            android:ems="5"
+            android:hint="○○駅"  />
 
         <TextView
             android:id="@+id/ShopPhoneTitle"
@@ -84,8 +89,8 @@
             android:layout_marginEnd="20dp"
             android:text="電話番号" />
 
-        <TextView
-            android:id="@+id/ShopPhoneContent"
+        <EditText
+            android:id="@+id/WriteShopPhoneContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -93,7 +98,9 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:background="#ffffff"
-            android:text="080-796-888" />
+            android:inputType="phone"
+            android:ems="5"
+            android:hint="080-××××-○○○○" />
 
 
         <TextView
@@ -102,10 +109,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:text="補足情報 " />
+            android:text="補足情報" />
 
-        <TextView
-            android:id="@+id/ShopMemoContent"
+        <EditText
+            android:id="@+id/WriteShopMemoContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -114,16 +121,19 @@
             android:layout_marginBottom="20dp"
             android:background="#ffffff"
             android:paddingBottom="60dp"
-            android:text="補足情報" />
+            android:inputType="text"
+            android:ems="5"
+            android:hint="補足情報"  />
 
         <Button
-            android:id="@+id/WriteShopFinishButton"
+            android:id="@+id/WrittenShopFinishButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="編集"
+            android:text="編集完了"
             app:backgroundTint="@color/red" />
 
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

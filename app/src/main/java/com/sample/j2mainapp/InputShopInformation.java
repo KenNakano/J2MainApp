@@ -54,6 +54,25 @@ public class InputShopInformation extends AppCompatActivity {
 
             }
         });
+
+
+        //店側　お店基本情報表示画面→お店基本情報表示編集　画面に進むボタン
+        final Button WriteShopFinishButton= findViewById(R.id.WriteShopFinishButton);
+
+        //店側　お店基本情報表示画面→お店基本情報表示編集　画面に進むボタン
+        WriteShopFinishButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ボタンが押された時の処理
+
+                //インテントの作成
+                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
+                Intent intent = new Intent(InputShopInformation.this, ShopInformaitonWrite.class);
+                //画面遷移
+                startActivity(intent);
+
+            }
+        });
     }
 
 //DBの結果をTextViewに表示

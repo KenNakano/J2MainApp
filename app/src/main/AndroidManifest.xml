@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.J2MainApp">
-        <activity android:name=".Top"></activity>
+        <activity android:name=".ShopInformaitonWrite"></activity>
+        <activity android:name=".Top" />
         <activity android:name=".CouponList" />
         <activity android:name=".ShopListWrite" />
         <activity android:name=".InputShopInformation" />
