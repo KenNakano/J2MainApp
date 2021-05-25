@@ -1,5 +1,6 @@
 package com.sample.j2mainapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,6 +39,24 @@ public class CouponList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coupon_list);
+
+        //クーポン画面→Top画面に進むボタン（Tpo戻るボタン）
+        Button TopButton = findViewById(R.id.TopButton);
+
+        //クーポン画面→Top画面に進むボタン処理（Tpo戻るボタン）
+        TopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ボタンが押された時の処理
+
+                //インテントの作成
+                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
+                Intent intent = new Intent(CouponList.this, Top.class);
+                //画面遷移
+                startActivity(intent);
+
+            }
+        });
 
         editText = (EditText) findViewById(R.id.editText);
         button = (Button) findViewById(R.id.button);
