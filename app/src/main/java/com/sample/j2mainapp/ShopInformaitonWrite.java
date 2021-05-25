@@ -6,13 +6,33 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ShopInformaitonWrite extends AppCompatActivity {
+
+    private EditText editText1;
+    private EditText editText2;
+    private EditText editText3;
+    private EditText editText4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_informaiton_write);
+
+        editText1 = (EditText)findViewById(R.id.WriteShopNameContent);
+        editText2 = (EditText)findViewById(R.id.WriteShopAreaContent);
+        editText3 = (EditText)findViewById(R.id.WriteShopPhoneContent);
+        editText4 = (EditText)findViewById(R.id.WriteShopMemoContent);
+
+        Intent intent = getIntent();
+        String ID = intent.getStringExtra("order");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
 
         //店側　お店基本情報編集画面→ShopTop画面に進むボタン
@@ -42,14 +62,43 @@ public class ShopInformaitonWrite extends AppCompatActivity {
         WrittenShopFinishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ボタンが押された時の処理
+                String text1 = editText1.getText().toString();
+                if(!text1.equals("")){
+                    Toast.makeText(v.getContext(),text1,Toast.LENGTH_SHORT).show();
+                    reference.child("06_店舗情報").child(ID).child("storeName").setValue(text1,null);
+                }
+                else {
+                    Toast.makeText(v.getContext(), "入力してください", Toast.LENGTH_SHORT).show();
+                }
+                String text2 = editText2.getText().toString();
+                if(!text2.equals("")){
+                    Toast.makeText(v.getContext(),text2,Toast.LENGTH_SHORT).show();
+                    reference.child("06_店舗情報").child(ID).child("area").setValue(text2,null);
+                }
+                else {
+                    Toast.makeText(v.getContext(), "入力してください", Toast.LENGTH_SHORT).show();
+                }
+                String text3 = editText3.getText().toString();
+                if(!text3.equals("")){
+                    Toast.makeText(v.getContext(),text3,Toast.LENGTH_SHORT).show();
+                    reference.child("06_店舗情報").child(ID).child("tel").setValue(text3,null);
+                }
+                else {
+                    Toast.makeText(v.getContext(), "入力してください", Toast.LENGTH_SHORT).show();
+                }
+                String text4 = editText4.getText().toString();
+                if(!text4.equals("")){
+                    Toast.makeText(v.getContext(),text4,Toast.LENGTH_SHORT).show();
+                    reference.child("06_店舗情報").child(ID).child("detail").setValue(text4,null);
+                }
+                else {
+                    Toast.makeText(v.getContext(), "入力してください", Toast.LENGTH_SHORT).show();
+                }
 
-                //インテントの作成
-                //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
                 Intent intent = new Intent(ShopInformaitonWrite.this, InputShopInformation.class);
+                intent.putExtra("order",ID);
                 //画面遷移
                 startActivity(intent);
-
             }
         });
     }
