@@ -28,7 +28,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/testtext8"
+            android:id="@+id/textview22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
@@ -37,6 +37,7 @@
             android:text="店舗基本情報画面"
 
             android:textSize="24sp" />
+
 
         <TextView
             android:id="@+id/ShopNameTitle"
