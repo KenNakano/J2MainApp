@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class ShopListWrite extends AppCompatActivity {
 
     private EditText editText;
+    private String salesID = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +28,9 @@ public class ShopListWrite extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.editTextTextShopSale);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-
-//        String ID = "1";
+//        salesID = reference.child(ID).child("sales").getKey();
+//        let firebase_node = firebase.database().ref('/user');
+//        firebase_node.once('value', parent => alert('Count: ' + parent.numChildren()));
 
 
 
@@ -41,11 +43,14 @@ public class ShopListWrite extends AppCompatActivity {
             public void onClick(View v) {
                 //ボタンが押された時の処理
                 String text = editText.getText().toString();
-                int salesID = 1;
+
                 if(!text.equals("")){
+//                    if(salesID != "1"){
+//                        salesID = salesID + 1;
+//                    }
                     Toast.makeText(v.getContext(),text,Toast.LENGTH_SHORT).show();
                     reference.child("06_店舗情報").child(ID).child("sales").child(String.valueOf(salesID)).setValue(text,null);
-                    salesID ++;
+
                 }
                 else {
                     Toast.makeText(v.getContext(), "入力してください", Toast.LENGTH_SHORT).show();
