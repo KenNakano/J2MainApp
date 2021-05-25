@@ -11,12 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.DataCollectionDefaultChange;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -38,6 +36,8 @@ public class OrderReceive extends AppCompatActivity {
         textView3 = findViewById(R.id.Content3);//ここでID付けしたテキストに繋がる。
 
         DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference("03_非受注/"+id);
+        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("04_受注済み（ペア成立）/"+id);
+
         reference1.addChildEventListener(new ChildEventListener() {
                  @Override
                  public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildValue) {
@@ -111,6 +111,20 @@ public class OrderReceive extends AppCompatActivity {
                 intent.putExtra("OrderReceive_Do",request);
                 //画面遷移
                 startActivity(intent);
+
+                reference2.child("about").setValue(request.get("about"));
+                reference2.child("area").setValue(request.get("area"));
+                reference2.child("deadline").setValue(request.get("deadline"));
+                reference2.child("etc").setValue(request.get("etc"));
+                reference2.child("id").setValue(request.get("id"));
+                reference2.child("requester").setValue(request.get("requester"));
+
+                reference1.child("about").removeValue();
+                reference1.child("area").removeValue();
+                reference1.child("deadline").removeValue();
+                reference1.child("etc").removeValue();
+                reference1.child("id").removeValue();
+                reference1.child("requester").removeValue();
 
             }
         });

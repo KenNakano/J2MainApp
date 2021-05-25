@@ -1,7 +1,5 @@
 package com.sample.j2mainapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,8 +31,6 @@ public class ShopList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_list);
         listView = findViewById(R.id.ShopList);
-//        listView.setOnItemClickListener((AdapterView.OnItemClickListener) this);
-
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("06_店舗情報");
         arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayList);

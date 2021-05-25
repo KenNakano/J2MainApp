@@ -27,7 +27,6 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
     ListView listView;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
-    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +44,7 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
             e.printStackTrace();
         }
 
-        //依頼リスト表示
+        //提案リスト表示
         DatabaseReference referenceA = FirebaseDatabase.getInstance().getReference("01_提案");
         arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayList);
         try{
@@ -53,6 +52,16 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
         }catch(NullPointerException e){
             e.printStackTrace();
         }
+
+        //店舗リスト表示
+        DatabaseReference referenceB = FirebaseDatabase.getInstance().getReference("07_お知らせ");
+        arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayList);
+        try{
+            listView.setAdapter(arrayAdapter);
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -78,36 +87,78 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
                     Intent intent = new Intent(Top.this, InputOrder.class);
                     intent.putExtra("order",values[1]);
                     startActivity(intent);
-                }else if(values[0].compareTo("店舗から") == 0){
-//                    Intent intent = new Intent(Top.this, InputOrder.class);
-//                    intent.putExtra("order",values[1]);
-//                    startActivity(intent);
-//                    System.out.println("クリック！→" + item);
+                }else if(values[0].compareTo("店舗より") == 0){
+                    Intent intent = new Intent(Top.this, ShopDetail.class);
+                    intent.putExtra("order",values[1]);
+                    startActivity(intent);
+                    System.out.println("クリック！→" + item);
                 }
 
 //                reference.child("").child(item).addValueEventListener(listener);
             }
         });
+        
+        
 
 //
 //        reference.child("001").addValueEventListener(listener);
 //
-        i = i + 2;
+        int i = 1; int j = 2; int k = 3; int l=4; int m=5; int n=6;
 
-        DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference("05_会員情報");
+        DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference("01_提案");
+        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("02_提案済み（ペア成立）");
+        DatabaseReference reference3 = FirebaseDatabase.getInstance().getReference("03_非受注");
+        DatabaseReference reference4 = FirebaseDatabase.getInstance().getReference("04_受注済み（ペア成立）");
+        DatabaseReference reference5 = FirebaseDatabase.getInstance().getReference("05_会員情報");
+        DatabaseReference reference6 = FirebaseDatabase.getInstance().getReference("06_店舗情報");
 
-//        reference1.child(String.valueOf(i)).child("id").setValue(String.valueOf(i),null);
-//        reference1.child(String.valueOf(i)).child("proposer").setValue("澤野",null);
-//        reference1.child(String.valueOf(i)).child("about").setValue("ビックカメラ",null);
-//        reference1.child(String.valueOf(i)).child("deadline").setValue("2021/05/26;20:00",null);
-//        reference1.child(String.valueOf(i)).child("area").setValue("船橋",null);
-//        reference1.child(String.valueOf(i)).child("etc").setValue("XXX",null);
+        //提案データ（提案）
+        reference1.child(String.valueOf(i)).child("id").setValue(String.valueOf(i),null);
+        reference1.child(String.valueOf(i)).child("proposer").setValue("石川",null);
+        reference1.child(String.valueOf(i)).child("about").setValue("CTCスーパー",null);
+        reference1.child(String.valueOf(i)).child("deadline").setValue("2021/05/26;14:00",null);
+        reference1.child(String.valueOf(i)).child("area").setValue("西船橋",null);
+        reference1.child(String.valueOf(i)).child("etc").setValue("XXX",null);
+
+        reference1.child(String.valueOf(j)).child("id").setValue(String.valueOf(j),null);
+        reference1.child(String.valueOf(j)).child("proposer").setValue("澤野",null);
+        reference1.child(String.valueOf(j)).child("about").setValue("ビックカメラ",null);
+        reference1.child(String.valueOf(j)).child("deadline").setValue("2021/05/26;20:00",null);
+        reference1.child(String.valueOf(j)).child("area").setValue("船橋",null);
+        reference1.child(String.valueOf(j)).child("etc").setValue("XXX",null);
 //
+//        //依頼データ（非受注）
+//        reference3.child(String.valueOf(i)).child("id").setValue(String.valueOf(i),null);
+//        reference3.child(String.valueOf(i)).child("requester").setValue("中野",null);
+//        reference3.child(String.valueOf(i)).child("about").setValue("セブンイレブンのシュークリームが欲しい",null);
+//        reference3.child(String.valueOf(i)).child("deadline").setValue("2021/05/26;20:00",null);
+//        reference3.child(String.valueOf(i)).child("area").setValue("西船橋",null);
+//        reference3.child(String.valueOf(i)).child("etc").setValue("予算：300円以内",null);
+//
+//        reference3.child(String.valueOf(j)).child("id").setValue(String.valueOf(j),null);
+//        reference3.child(String.valueOf(j)).child("requester").setValue("板倉",null);
+//        reference3.child(String.valueOf(j)).child("about").setValue("CTC商店の醤油が欲しい",null);
+//        reference3.child(String.valueOf(j)).child("deadline").setValue("2021/05/28;16:00",null);
+//        reference3.child(String.valueOf(j)).child("area").setValue("船橋",null);
+//        reference3.child(String.valueOf(j)).child("etc").setValue("置き配でお願いします",null);
+
 //        reference1.child(String.valueOf(i)).child("id").setValue(String.valueOf(i),null);
-//        reference1.child(String.valueOf(i)).child("area").setValue("新小岩",null);
+//        reference1.child(String.valueOf(i)).child("area").setValue("船橋",null);
 //        reference1.child(String.valueOf(i)).child("etc").setValue("",null);
-//        reference1.child(String.valueOf(i)).child("storeName").setValue("西船橋喫茶",null);
-//        reference1.child(String.valueOf(i)).child("sales").setValue("毎月4日に新作のケーキを出してます。",null);
+//        reference1.child(String.valueOf(i)).child("storeName").setValue("○○パン",null);
+//        reference1.child(String.valueOf(i)).child("detail").setValue("11:00、14:00に焼き立てパンが焼きあがります",null);
+//
+//        reference1.child(String.valueOf(j)).child("id").setValue(String.valueOf(j),null);
+//        reference1.child(String.valueOf(j)).child("area").setValue("市川",null);
+//        reference1.child(String.valueOf(j)).child("etc").setValue("",null);
+//        reference1.child(String.valueOf(j)).child("storeName").setValue("＊＊薬局",null);
+//        reference1.child(String.valueOf(j)).child("detail").setValue("毎月5日はセール開催",null);
+
+//        int a = 2;
+//        reference1.child(String.valueOf(i)).child("sales").child(String.valueOf(a)).child("id").setValue(String.valueOf(a),null);
+//        reference1.child(String.valueOf(i)).child("sales").child(String.valueOf(a)).child("item").setValue("ケーキセット",null);
+//        reference1.child(String.valueOf(i)).child("sales").child(String.valueOf(a)).child("price").setValue("500円",null);
+//        reference1.child(String.valueOf(i)).child("sales").child(String.valueOf(a)).child("deadline").setValue("2021/05/31,18:00",null);
 
 //        reference1.child(String.valueOf(i)).child("id").setValue(String.valueOf(i),null);
 //        reference1.child(String.valueOf(i)).child("area").setValue("葛西",null);
@@ -189,6 +240,44 @@ public class Top extends AppCompatActivity implements AdapterView.OnItemClickLis
 
             }
         });
+
+        //セールデータリスト追加
+        referenceB.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot , @Nullable String previousChildName) {
+                try {
+                    String value = dataSnapshot.getValue(SalesData.class).toString();
+                    arrayList.add(value);
+                    arrayAdapter.notifyDataSetChanged();
+
+                    System.out.println("value: " + value);
+
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
 
         //Top画面→店舗一覧画面に進むボタン

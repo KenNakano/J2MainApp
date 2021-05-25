@@ -1,7 +1,5 @@
 package com.sample.j2mainapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,6 +38,52 @@ public class ShopInformaitonWrite extends AppCompatActivity {
         String ID = intent.getStringExtra("order");
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+        reference.child("06_店舗情報/"+ID).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildValue) {
+                //System.out.println("ID"+ ID +"のキーデータ：" + (String)snapshot.getKey());
+
+                if(((String)snapshot.getKey()).compareTo("storeName") == 0){
+                    String requestData = snapshot.getValue(String.class);
+                    editText1.setText(requestData);
+                    System.out.println("ShopName is " + requestData);
+                }else if(((String)snapshot.getKey()).compareTo("area") == 0) {
+                    String requestData = snapshot.getValue(String.class);
+                    editText2.setText(requestData);
+                    System.out.println("Area is " + requestData);
+                }else if(((String)snapshot.getKey()).compareTo("tel") == 0) {
+                     String requestData = snapshot.getValue(String.class);
+                     editText3.setText(requestData);
+                     System.out.println("Tel is " + requestData);
+                }else if(((String)snapshot.getKey()).compareTo("detail") == 0) {
+                    String requestData = snapshot.getValue(String.class);
+                    editText4.setText(requestData);
+                    System.out.println("Detail is " + requestData);
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
         //店側　お店基本情報編集画面→ShopTop画面に進むボタン

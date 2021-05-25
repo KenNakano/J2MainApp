@@ -55,6 +55,7 @@ public class OrderTime extends AppCompatActivity {
                 //引数の1つ目は遷移元のアクティビティのクラス、2つ目は遷移先のアクティビティのクラスとなっています。
                 Intent intent = new Intent(OrderTime.this, OrderFinish.class);
                 //画面遷移
+                intent.putExtra("OrderTime_OrderFinish",request);
                 startActivity(intent);
 
             }

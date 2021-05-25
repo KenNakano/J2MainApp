@@ -103,9 +103,23 @@ public class InputOrder extends AppCompatActivity {
                 //ボタンが押された時の処理
                 String text = editText.getText().toString();
                 if(!text.equals("")){
+                    reference.child("02_提案済み（ペア成立）").child(id).child("about").setValue(request.get("about"));
+                    reference.child("02_提案済み（ペア成立）").child(id).child("area").setValue(request.get("area"));
+                    reference.child("02_提案済み（ペア成立）").child(id).child("deadline").setValue(request.get("deadline"));
+                    reference.child("02_提案済み（ペア成立）").child(id).child("etc").setValue(request.get("etc"));
+                    reference.child("02_提案済み（ペア成立）").child(id).child("id").setValue(request.get("id"));
+                    reference.child("02_提案済み（ペア成立）").child(id).child("proposer").setValue(request.get("proposer"));
+
+                    reference1.child("about").removeValue();
+                    reference1.child("area").removeValue();
+                    reference1.child("deadline").removeValue();
+                    reference1.child("etc").removeValue();
+                    reference1.child("id").removeValue();
+                    reference1.child("proposer").removeValue();
+
                     Toast.makeText(v.getContext(),text,Toast.LENGTH_SHORT).show();
-                    reference.child("02_提案済み（ペア成立）").child("ID").child("about").setValue(text,null);
-                    reference.child("04_受注済み（ペア成立）").child("ID").child("about").setValue(text,null);
+                    reference.child("02_提案済み（ペア成立）").child(id).child("request").setValue(text,null);
+//                    reference.child("04_受注済み（ペア成立）").child("ID").child("about").setValue(text,null);
                   }
                 else {
                     Toast.makeText(v.getContext(), "入力してください", Toast.LENGTH_SHORT).show();

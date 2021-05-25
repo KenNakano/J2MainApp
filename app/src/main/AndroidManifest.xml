@@ -10,14 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.J2MainApp">
         <activity android:name=".ShopInformaitonWrite"></activity>
-        <activity android:name=".ShopLogin" />
         <activity android:name=".CouponList" />
         <activity android:name=".ShopListWrite" />
         <activity android:name=".InputShopInformation" />
-        <activity android:name=".ShopTop" />
+        <activity android:name=".Top" />
         <activity android:name=".Sample" />
         <activity android:name=".ShopDetail" />
-        <activity android:name=".ShopList" />
+        <activity android:name=".ShopLogin" />
         <activity android:name=".Sorry" />
         <activity android:name=".OrderTime" />
         <activity android:name=".OrderFinish" />
@@ -32,7 +31,7 @@
         <activity android:name=".OrderReceive" />
         <activity android:name=".MainActivity" />
         <activity android:name=".DatabaseUpdate" />
-        <activity android:name=".Top">
+        <activity android:name=".ShopTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

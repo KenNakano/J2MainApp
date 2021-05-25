@@ -26,11 +26,11 @@ public class FinishPoint extends AppCompatActivity {
 
         textView1 = (TextView) findViewById(R.id.textView11);
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 //        reference.child("03_非受注").child("1").child("requester").addValueEventListener(listener);
         Intent intent = getIntent();
         request = (HashMap<String, String>)intent.getSerializableExtra("Do_FinishPoint");
         textView1.setText(request.get("requester") + "さんが受け取りました。");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("04_受注済み（ペア成立）/"+request.get("id"));
 
         //ポイント完了画面→クーポン画面に進むボタン
         Button FinishGoButton = findViewById(R.id.FinishButton);
@@ -46,6 +46,13 @@ public class FinishPoint extends AppCompatActivity {
                 Intent intent = new Intent(FinishPoint.this, Coupon.class);
                 //画面遷移
                 startActivity(intent);
+
+                reference.child("about").removeValue();
+                reference.child("area").removeValue();
+                reference.child("deadline").removeValue();
+                reference.child("etc").removeValue();
+                reference.child("id").removeValue();
+                reference.child("requester").removeValue();
 
             }
         });

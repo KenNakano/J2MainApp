@@ -6,32 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".ShopList">
 
+    <ScrollView
+        android:layout_width="353dp"
+        android:layout_height="436dp"
+        app:layout_constraintBottom_toTopOf="@+id/CouponInformationButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/ShopList"
+                android:layout_width="match_parent"
+                android:layout_height="439dp" />
+        </LinearLayout>
+    </ScrollView>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="129dp"
         android:layout_height="26dp"
         android:text="近所のお店"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="307dp"
-        android:layout_height="351dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/CouponInformationButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ListView
-            android:id="@+id/ShopList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
 
     <Button
         android:id="@+id/TopButton"
